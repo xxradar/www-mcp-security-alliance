@@ -23,6 +23,11 @@ function convertMarkdownToHTML(markdown) {
 async function loadMarkdownFiles(directory) {
     const contentDiv = document.getElementById('markdown-content');
     
+    if (!contentDiv) {
+        console.error('markdown-content div not found');
+        return;
+    }
+    
     // Known markdown files for each directory
     const directoryFiles = {
         'vulnerabilities': ['sql-injection.md'],
@@ -50,13 +55,23 @@ async function loadMarkdownFiles(directory) {
     // Remove duplicates
     const uniqueFiles = [...new Set(filesToCheck)];
     
+    console.log(`Loading markdown files for directory: ${directory}`);
+    console.log(`Files to check:`, uniqueFiles);
+    
     let hasContent = false;
     
     for (const file of uniqueFiles) {
         try {
-            const response = await fetch(`${directory}/${file}`);
+            const url = `${directory}/${file}`;
+            console.log(`Attempting to fetch: ${url}`);
+            
+            const response = await fetch(url);
+            console.log(`Response for ${file}:`, response.status, response.statusText);
+            
             if (response.ok) {
                 const markdown = await response.text();
+                console.log(`Loaded ${file}, content length:`, markdown.length);
+                
                 const html = convertMarkdownToHTML(markdown);
                 
                 const fileDiv = document.createElement('div');
@@ -70,22 +85,27 @@ async function loadMarkdownFiles(directory) {
                 hasContent = true;
             }
         } catch (error) {
-            // File doesn't exist or can't be loaded, continue to next
+            console.error(`Error loading ${file}:`, error);
             continue;
         }
     }
     
     if (!hasContent) {
+        console.log('No content loaded, showing placeholder');
         contentDiv.innerHTML = `
             <div class="alert info">
                 <strong>📝 Content Coming Soon:</strong> Markdown files will be loaded from the <code>${directory}/</code> directory.
                 <br>Add your <code>.md</code> files to contribute content to this section.
+                <br><small>Debug: Attempted to load files: ${uniqueFiles.join(', ')}</small>
             </div>
         `;
+    } else {
+        console.log('Successfully loaded markdown content');
     }
 }
 
 // Initialize markdown loading when DOM is ready
 document.addEventListener('DOMContentLoaded', function() {
     // This will be called by individual pages
+    console.log('DOM loaded, markdown loader ready');
 });
