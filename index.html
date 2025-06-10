@@ -87,11 +87,6 @@
             padding: 2rem;
             border-radius: 10px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            display: none;
-        }
-
-        .section.active {
-            display: block;
         }
 
         .section h2 {
@@ -113,18 +108,6 @@
             margin: 1rem 0;
             border-radius: 8px;
             border-left: 4px solid;
-        }
-
-        .alert.warning {
-            background: #fff3cd;
-            border-color: #ffc107;
-            color: #856404;
-        }
-
-        .alert.danger {
-            background: #f8d7da;
-            border-color: #dc3545;
-            color: #721c24;
         }
 
         .alert.info {
@@ -158,98 +141,51 @@
             margin-bottom: 1rem;
         }
 
-        code {
-            background: #f1f3f4;
-            padding: 0.2rem 0.4rem;
-            border-radius: 3px;
-            font-family: 'Courier New', monospace;
-        }
-
-        pre {
-            background: #f8f9fa;
-            padding: 1rem;
-            border-radius: 5px;
-            overflow-x: auto;
-            border: 1px solid #e9ecef;
-        }
-
-        .file-upload {
-            border: 2px dashed #667eea;
-            border-radius: 10px;
-            padding: 2rem;
+        .cta-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem 2rem;
+            border-radius: 15px;
             text-align: center;
-            margin: 2rem 0;
-            transition: all 0.3s ease;
+            margin: 3rem 0;
         }
 
-        .file-upload:hover {
-            background: #f8f9fa;
+        .cta-section h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: white;
         }
 
-        .file-upload input[type="file"] {
-            display: none;
+        .cta-section p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
         }
 
-        .file-upload label {
-            cursor: pointer;
-            color: #667eea;
-            font-weight: 600;
-        }
-
-        .dynamic-content {
-            background: #fff;
-            border: 1px solid #e9ecef;
-            border-radius: 8px;
-            padding: 1.5rem;
-            margin: 1rem 0;
-            min-height: 200px;
+        .btn-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
         }
 
         .btn {
-            background: #667eea;
+            background: rgba(255,255,255,0.2);
             color: white;
-            border: none;
-            padding: 0.7rem 1.5rem;
-            border-radius: 5px;
-            cursor: pointer;
+            border: 2px solid white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
             font-weight: 600;
             transition: all 0.3s ease;
-            margin: 0.5rem;
+            text-align: center;
+            display: block;
         }
 
         .btn:hover {
-            background: #5a67d8;
-            transform: translateY(-1px);
-        }
-
-        .vulnerability-list {
-            list-style: none;
-        }
-
-        .vulnerability-list li {
-            background: #fff5f5;
-            border-left: 4px solid #e53e3e;
-            padding: 1rem;
-            margin: 0.5rem 0;
-            border-radius: 0 5px 5px 0;
-        }
-
-        .security-checklist {
-            list-style: none;
-        }
-
-        .security-checklist li {
-            background: #f0fff4;
-            border-left: 4px solid #38a169;
-            padding: 0.8rem;
-            margin: 0.5rem 0;
-            border-radius: 0 5px 5px 0;
-        }
-
-        .security-checklist li::before {
-            content: "✓ ";
-            color: #38a169;
-            font-weight: bold;
+            background: white;
+            color: #667eea;
+            transform: translateY(-2px);
         }
 
         footer {
@@ -289,20 +225,19 @@
     <nav>
         <div class="container">
             <div class="nav-links">
-                <a href="#overview" class="nav-link active">Overview</a>
-                <a href="#vulnerabilities" class="nav-link">Vulnerabilities</a>
-                <a href="#security" class="nav-link">Security Measures</a>
-                <a href="#attacks" class="nav-link">Attack Vectors</a>
-                <a href="#resources" class="nav-link">Resources</a>
-                <a href="#contribute" class="nav-link">Contribute</a>
+                <a href="index.html" class="nav-link active">Home</a>
+                <a href="vulnerabilities/index.html" class="nav-link">Vulnerabilities</a>
+                <a href="security/index.html" class="nav-link">Security</a>
+                <a href="attacks/index.html" class="nav-link">Attack Vectors</a>
+                <a href="resources/index.html" class="nav-link">Resources</a>
+                <a href="contribute/index.html" class="nav-link">Contribute</a>
             </div>
         </div>
     </nav>
 
     <main>
         <div class="container">
-            <!-- Overview Section -->
-            <section id="overview" class="section active">
+            <section class="section">
                 <h2>What is MCP?</h2>
                 <p>Model Context Protocol (MCP) is an open protocol that enables AI assistants to securely access external data sources and tools. It provides a standardized way for AI models to interact with various systems while maintaining security and control.</p>
                 
@@ -327,211 +262,35 @@
                         <p>Educating developers and organizations about MCP security risks</p>
                     </div>
                 </div>
+            </section>
 
-                <div class="file-upload">
-                    <input type="file" id="markdown-upload" accept=".md,.txt" multiple>
-                    <label for="markdown-upload">
-                        📄 Drop or click to upload markdown files with additional MCP security information
-                    </label>
+            <section class="cta-section">
+                <h3>Explore MCP Security</h3>
+                <p>Dive deep into the security aspects of Model Context Protocol and learn how to build secure, robust implementations.</p>
+                
+                <div class="btn-grid">
+                    <a href="vulnerabilities/index.html" class="btn">🚨 Known Vulnerabilities</a>
+                    <a href="security/index.html" class="btn">🛡️ Security Measures</a>
+                    <a href="attacks/index.html" class="btn">⚔️ Attack Vectors</a>
+                    <a href="resources/index.html" class="btn">🛠️ Tools & Resources</a>
                 </div>
             </section>
 
-            <!-- Vulnerabilities Section -->
-            <section id="vulnerabilities" class="section">
-                <h2>Known Vulnerabilities</h2>
-                
-                <div class="alert danger">
-                    <strong>⚠️ Warning:</strong> The following vulnerabilities are documented for educational and research purposes only. Do not exploit these in production systems.
-                </div>
-
-                <h3>Common MCP Vulnerabilities</h3>
-                <ul class="vulnerability-list">
-                    <li><strong>SQL Injection (SQLi):</strong> Raw SQL execution without proper sanitization</li>
-                    <li><strong>Remote Code Execution (RCE):</strong> Unrestricted command execution capabilities</li>
-                    <li><strong>Authentication Bypass:</strong> Missing or weak authentication mechanisms</li>
-                    <li><strong>Input Validation Failures:</strong> Lack of proper input sanitization</li>
-                    <li><strong>Privilege Escalation:</strong> Insufficient access controls and role separation</li>
-                    <li><strong>Data Exposure:</strong> Unmasked PII and sensitive information leakage</li>
-                    <li><strong>JSON-RPC Exploitation:</strong> Protocol-specific attack vectors</li>
-                </ul>
-
-                <h3>Intentionally Vulnerable MCP Server</h3>
-                <div class="alert warning">
-                    <strong>Research Environment:</strong> We maintain an intentionally vulnerable MCP server for security research and testing purposes.
-                </div>
-
-                <pre><code># Features of the vulnerable server:
-- No authentication or access control
-- Raw SQL query execution
-- Shell command execution
-- LLM-based decision routing
-- No input validation
-- Designed for SQLi and RCE testing</code></pre>
-
-                <div id="vuln-content" class="dynamic-content">
-                    <p>Upload markdown files to see additional vulnerability information here...</p>
-                </div>
-            </section>
-
-            <!-- Security Measures Section -->
-            <section id="security" class="section">
-                <h2>Security Measures & Best Practices</h2>
-                
-                <h3>PII Masking and Data Protection</h3>
-                <p>Protecting sensitive information is crucial in MCP implementations. Our research includes comprehensive PII masking capabilities:</p>
-                
+            <section class="section">
+                <h2>Latest Security Research</h2>
                 <div class="grid">
                     <div class="card">
-                        <h4>📧 Supported PII Types</h4>
-                        <ul>
-                            <li>Email addresses</li>
-                            <li>Phone numbers</li>
-                            <li>Social Security Numbers</li>
-                            <li>Credit card numbers</li>
-                            <li>IP addresses</li>
-                            <li>Street addresses</li>
-                            <li>Passport numbers</li>
-                        </ul>
+                        <h4>🔬 MCP Server Vulnerabilities</h4>
+                        <p>Research on common security flaws in MCP server implementations including authentication bypass and injection attacks.</p>
                     </div>
                     <div class="card">
-                        <h4>⚙️ Configuration Options</h4>
-                        <ul>
-                            <li>MASK_PII_BEFORE_LLM</li>
-                            <li>MASK_PII_IN_LOGS</li>
-                            <li>X-Mask-PII-Before-LLM header</li>
-                            <li>X-Mask-PII-In-Logs header</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <h3>Security Checklist</h3>
-                <ul class="security-checklist">
-                    <li>Implement proper authentication and authorization</li>
-                    <li>Validate and sanitize all input data</li>
-                    <li>Use parameterized queries to prevent SQL injection</li>
-                    <li>Implement rate limiting and request throttling</li>
-                    <li>Enable comprehensive logging and monitoring</li>
-                    <li>Apply principle of least privilege</li>
-                    <li>Regularly update dependencies and security patches</li>
-                    <li>Implement PII masking for sensitive data</li>
-                    <li>Use encryption for data in transit and at rest</li>
-                    <li>Conduct regular security assessments</li>
-                </ul>
-
-                <div id="security-content" class="dynamic-content">
-                    <p>Upload markdown files to see additional security information here...</p>
-                </div>
-            </section>
-
-            <!-- Attack Vectors Section -->
-            <section id="attacks" class="section">
-                <h2>Attack Vectors & Exploitation Techniques</h2>
-                
-                <div class="alert warning">
-                    <strong>Educational Purpose:</strong> This information is provided for defensive security research and awareness only.
-                </div>
-
-                <h3>LLM-Specific Attack Vectors</h3>
-                <div class="grid">
-                    <div class="card">
-                        <h4>🎯 Prompt Injection</h4>
-                        <p>Manipulating LLM prompts to bypass security measures or execute unintended commands</p>
+                        <h4>🔐 PII Masking in MCP</h4>
+                        <p>Best practices for protecting personally identifiable information in MCP communications and data processing.</p>
                     </div>
                     <div class="card">
-                        <h4>🔄 Context Poisoning</h4>
-                        <p>Injecting malicious context to influence model behavior and decision-making</p>
+                        <h4>🎯 LLM-Specific Attacks</h4>
+                        <p>Understanding prompt injection, context poisoning, and other AI-specific attack vectors in MCP environments.</p>
                     </div>
-                    <div class="card">
-                        <h4>🎭 Jailbreaking</h4>
-                        <p>Circumventing model safety measures and restrictions through crafted inputs</p>
-                    </div>
-                </div>
-
-                <h3>Protocol-Level Attacks</h3>
-                <div class="grid">
-                    <div class="card">
-                        <h4>📡 JSON-RPC Exploitation</h4>
-                        <p>Abusing JSON-RPC protocol features for unauthorized access or data exfiltration</p>
-                    </div>
-                    <div class="card">
-                        <h4>🔗 Server-Side Request Forgery</h4>
-                        <p>Leveraging MCP servers to make unauthorized requests to internal systems</p>
-                    </div>
-                    <div class="card">
-                        <h4>⚡ Resource Exhaustion</h4>
-                        <p>DoS attacks through resource-intensive operations or infinite loops</p>
-                    </div>
-                </div>
-
-                <div id="attacks-content" class="dynamic-content">
-                    <p>Upload markdown files to see additional attack vector information here...</p>
-                </div>
-            </section>
-
-            <!-- Resources Section -->
-            <section id="resources" class="section">
-                <h2>Resources & Tools</h2>
-                
-                <h3>Security Testing Tools</h3>
-                <div class="grid">
-                    <div class="card">
-                        <h4>🧪 Vulnerable MCP Server</h4>
-                        <p>Intentionally vulnerable server for security testing and research</p>
-                        <button class="btn" onclick="showCode('vulnerable-server')">View Setup</button>
-                    </div>
-                    <div class="card">
-                        <h4>🔍 MCP Scanner</h4>
-                        <p>Automated security scanning tools for MCP implementations</p>
-                        <button class="btn" onclick="showCode('scanner')">View Tool</button>
-                    </div>
-                    <div class="card">
-                        <h4>📊 Security Analyzer</h4>
-                        <p>Comprehensive security analysis and reporting tools</p>
-                        <button class="btn" onclick="showCode('analyzer')">View Details</button>
-                    </div>
-                </div>
-
-                <div id="tool-code" class="dynamic-content" style="display: none;">
-                    <h4>Tool Information</h4>
-                    <div id="code-content"></div>
-                </div>
-
-                <div id="resources-content" class="dynamic-content">
-                    <p>Upload markdown files to see additional resources here...</p>
-                </div>
-            </section>
-
-            <!-- Contribute Section -->
-            <section id="contribute" class="section">
-                <h2>Contribute to MCP Security</h2>
-                
-                <h3>How to Get Involved</h3>
-                <p>The MCP Security Alliance welcomes contributions from security researchers, developers, and organizations interested in improving MCP security.</p>
-                
-                <div class="grid">
-                    <div class="card">
-                        <h4>🔬 Security Research</h4>
-                        <p>Conduct vulnerability research and responsible disclosure</p>
-                    </div>
-                    <div class="card">
-                        <h4>📝 Documentation</h4>
-                        <p>Contribute to security guidelines and best practices</p>
-                    </div>
-                    <div class="card">
-                        <h4>🛠️ Tool Development</h4>
-                        <p>Develop security testing and analysis tools</p>
-                    </div>
-                </div>
-
-                <div class="file-upload">
-                    <input type="file" id="contribute-upload" accept=".md,.txt" multiple>
-                    <label for="contribute-upload">
-                        🤝 Share your security research and findings
-                    </label>
-                </div>
-
-                <div id="contribute-content" class="dynamic-content">
-                    <p>Upload your markdown files with security research, findings, or documentation to contribute to the alliance...</p>
                 </div>
             </section>
         </div>
@@ -543,183 +302,5 @@
             <p>⚠️ All security information is provided for educational and research purposes only.</p>
         </div>
     </footer>
-
-    <script>
-        // Navigation functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const navLinks = document.querySelectorAll('.nav-link');
-            const sections = document.querySelectorAll('.section');
-
-            navLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    // Remove active class from all links and sections
-                    navLinks.forEach(l => l.classList.remove('active'));
-                    sections.forEach(s => s.classList.remove('active'));
-                    
-                    // Add active class to clicked link
-                    this.classList.add('active');
-                    
-                    // Show corresponding section
-                    const targetId = this.getAttribute('href').substring(1);
-                    document.getElementById(targetId).classList.add('active');
-                });
-            });
-        });
-
-        // File upload functionality for markdown files
-        function setupFileUpload(inputId, contentId) {
-            const input = document.getElementById(inputId);
-            const content = document.getElementById(contentId);
-            
-            input.addEventListener('change', function(e) {
-                const files = e.target.files;
-                if (files.length === 0) return;
-                
-                content.innerHTML = '<h4>Uploaded Content:</h4>';
-                
-                Array.from(files).forEach(file => {
-                    if (file.type === 'text/markdown' || file.name.endsWith('.md') || file.type === 'text/plain') {
-                        const reader = new FileReader();
-                        reader.onload = function(e) {
-                            const markdown = e.target.result;
-                            const html = convertMarkdownToHTML(markdown);
-                            content.innerHTML += `
-                                <div style="border: 1px solid #e9ecef; padding: 1rem; margin: 1rem 0; border-radius: 5px;">
-                                    <h5 style="color: #667eea; margin-bottom: 1rem;">📄 ${file.name}</h5>
-                                    ${html}
-                                </div>
-                            `;
-                        };
-                        reader.readAsText(file);
-                    }
-                });
-            });
-        }
-
-        // Simple markdown to HTML converter
-        function convertMarkdownToHTML(markdown) {
-            return markdown
-                .replace(/^### (.*$)/gm, '<h4>$1</h4>')
-                .replace(/^## (.*$)/gm, '<h3>$1</h3>')
-                .replace(/^# (.*$)/gm, '<h2>$1</h2>')
-                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-                .replace(/\*(.*?)\*/g, '<em>$1</em>')
-                .replace(/`(.*?)`/g, '<code>$1</code>')
-                .replace(/\n\n/g, '</p><p>')
-                .replace(/\n/g, '<br>')
-                .replace(/^(.*)$/gm, '<p>$1</p>')
-                .replace(/<p><\/p>/g, '')
-                .replace(/^<p>(<h[1-4]>.*<\/h[1-4]>)<\/p>$/gm, '$1');
-        }
-
-        // Setup file uploads for different sections
-        setupFileUpload('markdown-upload', 'vuln-content');
-        setupFileUpload('contribute-upload', 'contribute-content');
-
-        // Additional file upload for security section
-        document.getElementById('markdown-upload').addEventListener('change', function(e) {
-            const files = e.target.files;
-            if (files.length === 0) return;
-            
-            // Also update security content if relevant
-            const securityContent = document.getElementById('security-content');
-            securityContent.innerHTML = '<h4>Security-Related Content:</h4>';
-            
-            Array.from(files).forEach(file => {
-                if (file.name.toLowerCase().includes('security') || file.name.toLowerCase().includes('pii')) {
-                    const reader = new FileReader();
-                    reader.onload = function(e) {
-                        const markdown = e.target.result;
-                        const html = convertMarkdownToHTML(markdown);
-                        securityContent.innerHTML += `
-                            <div style="border: 1px solid #e9ecef; padding: 1rem; margin: 1rem 0; border-radius: 5px;">
-                                <h5 style="color: #667eea; margin-bottom: 1rem;">🔒 ${file.name}</h5>
-                                ${html}
-                            </div>
-                        `;
-                    };
-                    reader.readAsText(file);
-                }
-            });
-        });
-
-        // Tool code display functionality
-        function showCode(toolType) {
-            const toolCodeDiv = document.getElementById('tool-code');
-            const codeContent = document.getElementById('code-content');
-            
-            const codes = {
-                'vulnerable-server': `
-                    <h5>Vulnerable MCP Server Setup</h5>
-                    <pre><code># Docker setup for vulnerable MCP server
-docker-compose up --build
-docker network connect mcplab ollama
-docker network connect mcplab mcp_internal
-
-# Features:
-- No authentication
-- Raw SQL execution
-- Shell command execution
-- LLM-based routing
-- Intentionally vulnerable for research</code></pre>
-                `,
-                'scanner': `
-                    <h5>MCP Security Scanner</h5>
-                    <pre><code># Automated security scanning
-python mcp_scanner.py --target http://localhost:8000
-python vulnerability_checker.py --config scan_config.json
-
-# Checks for:
-- Authentication bypass
-- SQL injection vulnerabilities
-- Command injection flaws
-- Input validation issues</code></pre>
-                `,
-                'analyzer': `
-                    <h5>Security Analysis Tool</h5>
-                    <pre><code># Security analysis and reporting
-python security_analyzer.py --analyze-config config.json
-python generate_report.py --format html --output security_report.html
-
-# Provides:
-- Vulnerability assessment
-- Risk scoring
-- Remediation recommendations
-- Compliance checking</code></pre>
-                `
-            };
-            
-            codeContent.innerHTML = codes[toolType] || '<p>Tool information not available.</p>';
-            toolCodeDiv.style.display = 'block';
-        }
-
-        // Drag and drop functionality
-        document.querySelectorAll('.file-upload').forEach(uploadArea => {
-            uploadArea.addEventListener('dragover', function(e) {
-                e.preventDefault();
-                this.style.backgroundColor = '#f0f0f0';
-            });
-            
-            uploadArea.addEventListener('dragleave', function(e) {
-                e.preventDefault();
-                this.style.backgroundColor = '';
-            });
-            
-            uploadArea.addEventListener('drop', function(e) {
-                e.preventDefault();
-                this.style.backgroundColor = '';
-                
-                const files = e.dataTransfer.files;
-                const input = this.querySelector('input[type="file"]');
-                input.files = files;
-                
-                // Trigger change event
-                const event = new Event('change', { bubbles: true });
-                input.dispatchEvent(event);
-            });
-        });
-    </script>
 </body>
 </html>

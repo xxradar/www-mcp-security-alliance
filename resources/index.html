@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources & Tools - MCP Security Alliance</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <h1>🛡️ MCP Security Alliance</h1>
+                <p class="subtitle">Securing Model Context Protocol implementations through research, education, and best practices</p>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <div class="nav-links">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="../vulnerabilities/index.html" class="nav-link">Vulnerabilities</a>
+                <a href="../security/index.html" class="nav-link">Security</a>
+                <a href="../attacks/index.html" class="nav-link">Attack Vectors</a>
+                <a href="index.html" class="nav-link active">Resources</a>
+                <a href="../contribute/index.html" class="nav-link">Contribute</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="container">
+            <section class="section">
+                <h2>Resources & Tools</h2>
+                
+                <h3>Security Testing Tools</h3>
+                <div class="grid">
+                    <div class="card">
+                        <h4>🧪 Vulnerable MCP Server</h4>
+                        <p>Intentionally vulnerable server for security testing and research</p>
+                        <button class="btn" onclick="showCode('vulnerable-server')">View Setup</button>
+                    </div>
+                    <div class="card">
+                        <h4>🔍 MCP Scanner</h4>
+                        <p>Automated security scanning tools for MCP implementations</p>
+                        <button class="btn" onclick="showCode('scanner')">View Tool</button>
+                    </div>
+                    <div class="card">
+                        <h4>📊 Security Analyzer</h4>
+                        <p>Comprehensive security analysis and reporting tools</p>
+                        <button class="btn" onclick="showCode('analyzer')">View Details</button>
+                    </div>
+                </div>
+
+                <div id="tool-code" class="dynamic-content" style="display: none;">
+                    <h4>Tool Information</h4>
+                    <div id="code-content"></div>
+                </div>
+
+                <div id="markdown-content">
+                    <!-- Markdown content will be loaded here -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 MCP Security Alliance. Dedicated to advancing security in Model Context Protocol implementations.</p>
+            <p>⚠️ All security information is provided for educational and research purposes only.</p>
+        </div>
+    </footer>
+
+    <script src="../scripts/markdown-loader.js"></script>
+    <script>
+        // Tool code display functionality
+        function showCode(toolType) {
+            const toolCodeDiv = document.getElementById('tool-code');
+            const codeContent = document.getElementById('code-content');
+            
+            const codes = {
+                'vulnerable-server': `
+                    <h5>Vulnerable MCP Server Setup</h5>
+                    <pre><code># Docker setup for vulnerable MCP server
+docker-compose up --build
+docker network connect mcplab ollama
+docker network connect mcplab mcp_internal
+
+# Features:
+- No authentication
+- Raw SQL execution
+- Shell command execution
+- LLM-based routing
+- Intentionally vulnerable for research</code></pre>
+                `,
+                'scanner': `
+                    <h5>MCP Security Scanner</h5>
+                    <pre><code># Automated security scanning
+python mcp_scanner.py --target http://localhost:8000
+python vulnerability_checker.py --config scan_config.json
+
+# Checks for:
+- Authentication bypass
+- SQL injection vulnerabilities
+- Command injection flaws
+- Input validation issues</code></pre>
+                `,
+                'analyzer': `
+                    <h5>Security Analysis Tool</h5>
+                    <pre><code># Security analysis and reporting
+python security_analyzer.py --analyze-config config.json
+python generate_report.py --format html --output security_report.html
+
+# Provides:
+- Vulnerability assessment
+- Risk scoring
+- Remediation recommendations
+- Compliance checking</code></pre>
+                `
+            };
+            
+            codeContent.innerHTML = codes[toolType] || '<p>Tool information not available.</p>';
+            toolCodeDiv.style.display = 'block';
+        }
+
+        // Load markdown files from the resources directory
+        loadMarkdownFiles('resources');
+    </script>
+</body>
+</html>

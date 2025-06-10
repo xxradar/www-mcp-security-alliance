@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security Measures - MCP Security Alliance</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <h1>🛡️ MCP Security Alliance</h1>
+                <p class="subtitle">Securing Model Context Protocol implementations through research, education, and best practices</p>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <div class="nav-links">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="../vulnerabilities/index.html" class="nav-link">Vulnerabilities</a>
+                <a href="index.html" class="nav-link active">Security</a>
+                <a href="../attacks/index.html" class="nav-link">Attack Vectors</a>
+                <a href="../resources/index.html" class="nav-link">Resources</a>
+                <a href="../contribute/index.html" class="nav-link">Contribute</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="container">
+            <section class="section">
+                <h2>Security Measures & Best Practices</h2>
+                
+                <h3>PII Masking and Data Protection</h3>
+                <p>Protecting sensitive information is crucial in MCP implementations. Our research includes comprehensive PII masking capabilities:</p>
+                
+                <div class="grid">
+                    <div class="card">
+                        <h4>📧 Supported PII Types</h4>
+                        <ul>
+                            <li>Email addresses</li>
+                            <li>Phone numbers</li>
+                            <li>Social Security Numbers</li>
+                            <li>Credit card numbers</li>
+                            <li>IP addresses</li>
+                            <li>Street addresses</li>
+                            <li>Passport numbers</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h4>⚙️ Configuration Options</h4>
+                        <ul>
+                            <li>MASK_PII_BEFORE_LLM</li>
+                            <li>MASK_PII_IN_LOGS</li>
+                            <li>X-Mask-PII-Before-LLM header</li>
+                            <li>X-Mask-PII-In-Logs header</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>Security Checklist</h3>
+                <ul class="security-checklist">
+                    <li>Implement proper authentication and authorization</li>
+                    <li>Validate and sanitize all input data</li>
+                    <li>Use parameterized queries to prevent SQL injection</li>
+                    <li>Implement rate limiting and request throttling</li>
+                    <li>Enable comprehensive logging and monitoring</li>
+                    <li>Apply principle of least privilege</li>
+                    <li>Regularly update dependencies and security patches</li>
+                    <li>Implement PII masking for sensitive data</li>
+                    <li>Use encryption for data in transit and at rest</li>
+                    <li>Conduct regular security assessments</li>
+                </ul>
+
+                <div id="markdown-content">
+                    <!-- Markdown content will be loaded here -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 MCP Security Alliance. Dedicated to advancing security in Model Context Protocol implementations.</p>
+            <p>⚠️ All security information is provided for educational and research purposes only.</p>
+        </div>
+    </footer>
+
+    <script src="../scripts/markdown-loader.js"></script>
+    <script>
+        // Load markdown files from the security directory
+        loadMarkdownFiles('security');
+    </script>
+</body>
+</html>

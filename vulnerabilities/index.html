@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCP Vulnerabilities - MCP Security Alliance</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <h1>🛡️ MCP Security Alliance</h1>
+                <p class="subtitle">Securing Model Context Protocol implementations through research, education, and best practices</p>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <div class="nav-links">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="index.html" class="nav-link active">Vulnerabilities</a>
+                <a href="../security/index.html" class="nav-link">Security</a>
+                <a href="../attacks/index.html" class="nav-link">Attack Vectors</a>
+                <a href="../resources/index.html" class="nav-link">Resources</a>
+                <a href="../contribute/index.html" class="nav-link">Contribute</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="container">
+            <section class="section">
+                <h2>Known Vulnerabilities</h2>
+                
+                <div class="alert danger">
+                    <strong>⚠️ Warning:</strong> The following vulnerabilities are documented for educational and research purposes only. Do not exploit these in production systems.
+                </div>
+
+                <h3>Common MCP Vulnerabilities</h3>
+                <ul class="vulnerability-list">
+                    <li><strong>SQL Injection (SQLi):</strong> Raw SQL execution without proper sanitization</li>
+                    <li><strong>Remote Code Execution (RCE):</strong> Unrestricted command execution capabilities</li>
+                    <li><strong>Authentication Bypass:</strong> Missing or weak authentication mechanisms</li>
+                    <li><strong>Input Validation Failures:</strong> Lack of proper input sanitization</li>
+                    <li><strong>Privilege Escalation:</strong> Insufficient access controls and role separation</li>
+                    <li><strong>Data Exposure:</strong> Unmasked PII and sensitive information leakage</li>
+                    <li><strong>JSON-RPC Exploitation:</strong> Protocol-specific attack vectors</li>
+                </ul>
+
+                <h3>Intentionally Vulnerable MCP Server</h3>
+                <div class="alert warning">
+                    <strong>Research Environment:</strong> We maintain an intentionally vulnerable MCP server for security research and testing purposes.
+                </div>
+
+                <pre><code># Features of the vulnerable server:
+- No authentication or access control
+- Raw SQL query execution
+- Shell command execution
+- LLM-based decision routing
+- No input validation
+- Designed for SQLi and RCE testing</code></pre>
+
+                <div id="markdown-content">
+                    <!-- Markdown content will be loaded here -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 MCP Security Alliance. Dedicated to advancing security in Model Context Protocol implementations.</p>
+            <p>⚠️ All security information is provided for educational and research purposes only.</p>
+        </div>
+    </footer>
+
+    <script src="../scripts/markdown-loader.js"></script>
+    <script>
+        // Load markdown files from the vulnerabilities directory
+        loadMarkdownFiles('vulnerabilities');
+    </script>
+</body>
+</html>
