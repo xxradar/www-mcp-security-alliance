@@ -1,4 +1,4 @@
-# OWASP Top 10 Security Risks for Anthropic Model Context Protocol (MCP)
+# OWASP Top 10 Alike Security Risks for Anthropic Model Context Protocol (MCP)
 
 The Model Context Protocol (MCP) enables AI assistants (like Anthropic’s Claude) to connect with external tools and data sources in a standardized way. This powerful capability also expands the attack surface for LLM-driven applications, introducing new categories of vulnerabilities beyond traditional web app risks. Below is an OWASP-style Top 10 list of the most important security risks specific to MCP and large language model (LLM) integrations. Each item highlights issues unique to MCP/LLMs (e.g. context shadowing, “rug pull” attacks, reasoning flaws) or re-imagines classic vulnerabilities (like injection or broken access control) in the MCP context. For each risk, we provide a description, exploit scenarios, and mitigation strategies.
 
