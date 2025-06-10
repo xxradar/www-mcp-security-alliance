@@ -7,19 +7,33 @@ function convertMarkdownToHTML(markdown) {
         .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
         .replace(/\*(.*?)\*/g, '<em>$1</em>')
         .replace(/`(.*?)`/g, '<code>$1</code>')
+        .replace(/```[\s\S]*?```/g, function(match) {
+            const code = match.slice(3, -3);
+            return '<pre><code>' + code + '</code></pre>';
+        })
         .replace(/\n\n/g, '</p><p>')
         .replace(/\n/g, '<br>')
         .replace(/^(.*)$/gm, '<p>$1</p>')
         .replace(/<p><\/p>/g, '')
-        .replace(/^<p>(<h[1-4]>.*<\/h[1-4]>)<\/p>$/gm, '$1');
+        .replace(/^<p>(<h[1-4]>.*<\/h[1-4]>)<\/p>$/gm, '$1')
+        .replace(/^<p>(<pre><code>[\s\S]*?<\/code><\/pre>)<\/p>$/gm, '$1');
 }
 
 // Load markdown files from a directory
 async function loadMarkdownFiles(directory) {
     const contentDiv = document.getElementById('markdown-content');
     
-    // List of potential markdown files to check
-    const potentialFiles = [
+    // Known markdown files for each directory
+    const directoryFiles = {
+        'vulnerabilities': ['sql-injection.md'],
+        'security': ['authentication.md'],
+        'attacks': ['prompt-injection.md'],
+        'resources': ['security-tools.md'],
+        'contribute': ['README.md']
+    };
+    
+    // Also check for common filenames
+    const commonFiles = [
         'README.md',
         'index.md',
         'overview.md',
@@ -27,9 +41,18 @@ async function loadMarkdownFiles(directory) {
         'guide.md'
     ];
     
+    // Combine directory-specific files with common files
+    const filesToCheck = [
+        ...(directoryFiles[directory] || []),
+        ...commonFiles
+    ];
+    
+    // Remove duplicates
+    const uniqueFiles = [...new Set(filesToCheck)];
+    
     let hasContent = false;
     
-    for (const file of potentialFiles) {
+    for (const file of uniqueFiles) {
         try {
             const response = await fetch(`${directory}/${file}`);
             if (response.ok) {
