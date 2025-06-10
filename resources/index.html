@@ -59,7 +59,149 @@
                 </div>
 
                 <div id="markdown-content">
-                    <!-- Markdown content will be loaded here -->
+                    <div class="markdown-file">
+                        <h5>📄 security-tools.md</h5>
+                        <h2>Security Tools for MCP</h2>
+
+                        <h3>Static Analysis Tools</h3>
+
+                        <h4>Code Scanners</h4>
+                        <ul>
+                            <li><strong>Bandit:</strong> Python security scanner</li>
+                            <li><strong>Semgrep:</strong> Multi-language static analysis</li>
+                            <li><strong>CodeQL:</strong> Semantic code analysis</li>
+                            <li><strong>SonarQube:</strong> Code quality and security</li>
+                        </ul>
+
+                        <h4>Dependency Scanners</h4>
+                        <pre><code># Check for vulnerable dependencies
+npm audit
+pip-audit
+safety check</code></pre>
+
+                        <h3>Dynamic Analysis Tools</h3>
+
+                        <h4>Web Application Scanners</h4>
+                        <ul>
+                            <li><strong>OWASP ZAP:</strong> Web app security scanner</li>
+                            <li><strong>Burp Suite:</strong> Professional web security testing</li>
+                            <li><strong>Nuclei:</strong> Fast vulnerability scanner</li>
+                        </ul>
+
+                        <h4>API Security Testing</h4>
+                        <pre><code># Example using OWASP ZAP
+zap-baseline.py -t http://localhost:8000/api</code></pre>
+
+                        <h3>MCP-Specific Tools</h3>
+
+                        <h4>Custom Security Scanner</h4>
+                        <p>A comprehensive Python-based scanner for MCP implementations:</p>
+                        <pre><code>#!/usr/bin/env python3
+"""
+MCP Security Scanner
+Scans MCP servers for common vulnerabilities
+"""
+
+class MCPScanner:
+    def __init__(self, target_url):
+        self.target_url = target_url
+        self.session = requests.Session()
+    
+    def scan_sql_injection(self):
+        """Test for SQL injection vulnerabilities"""
+        payloads = [
+            "'; DROP TABLE users; --",
+            "' OR '1'='1",
+            "' UNION SELECT NULL--"
+        ]
+        # Implementation details...
+    
+    def scan_command_injection(self):
+        """Test for command injection vulnerabilities"""
+        # Implementation details...
+    
+    def scan_authentication_bypass(self):
+        """Test for authentication bypass"""
+        # Implementation details...</code></pre>
+
+                        <h3>Container Security</h3>
+
+                        <h4>Docker Security Scanning</h4>
+                        <pre><code># Scan container images
+docker run --rm -v /var/run/docker.sock:/var/run/docker.sock \
+  aquasec/trivy image your-mcp-server:latest
+
+# Use docker-bench-security
+git clone https://github.com/docker/docker-bench-security.git
+cd docker-bench-security
+sudo sh docker-bench-security.sh</code></pre>
+
+                        <h3>Network Security Tools</h3>
+
+                        <h4>TLS/SSL Testing</h4>
+                        <pre><code># Test SSL configuration
+sslyze --regular your-mcp-server.com:443
+
+# Use testssl.sh
+testssl.sh https://your-mcp-server.com</code></pre>
+
+                        <h4>Network Scanning</h4>
+                        <pre><code># Port scanning with nmap
+nmap -sV -sC your-mcp-server.com
+
+# Service discovery
+nmap -sU -sS your-mcp-server.com</code></pre>
+
+                        <h3>CI/CD Integration</h3>
+
+                        <h4>Automated Security Testing</h4>
+                        <pre><code># .github/workflows/security.yml
+name: Security Scan
+on: [push, pull_request]
+
+jobs:
+  security-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Run Bandit Security Scan
+        run: |
+          pip install bandit
+          bandit -r . -f json -o bandit-report.json
+      
+      - name: Run Safety Check
+        run: |
+          pip install safety
+          safety check --json --output safety-report.json</code></pre>
+
+                        <h3>Monitoring and Logging</h3>
+
+                        <h4>Security Event Monitoring</h4>
+                        <pre><code># Example: Send security events to SIEM
+def send_security_event(event_type, details):
+    event = {
+        "timestamp": "2024-01-01T00:00:00Z",
+        "source": "mcp-server",
+        "event_type": event_type,
+        "details": details,
+        "severity": get_severity(event_type)
+    }
+    
+    # Send to SIEM/SOAR platform
+    requests.post(
+        "https://your-siem.com/api/events",
+        headers={"Authorization": "Bearer TOKEN"},
+        json=event
+    )</code></pre>
+
+                        <h3>References</h3>
+                        <ul>
+                            <li><a href="https://owasp.org/www-project-web-security-testing-guide/">OWASP Testing Guide</a></li>
+                            <li><a href="https://www.nist.gov/cyberframework">NIST Cybersecurity Framework</a></li>
+                            <li><a href="https://www.sans.org/tools/">SANS Security Tools</a></li>
+                        </ul>
+                    </div>
                 </div>
             </section>
         </div>
@@ -124,8 +266,7 @@ python generate_report.py --format html --output security_report.html
             toolCodeDiv.style.display = 'block';
         }
 
-        // Load markdown files from the resources directory
-        loadMarkdownFiles('resources');
+        // Note: Removed loadMarkdownFiles call to prevent overwriting content
     </script>
 </body>
 </html>
