@@ -4,7 +4,8 @@
 Large Language Models (LLMs) like GPT‑4, Anthropic’s Claude, and Google’s Gemini represent a new generation of AI systems that can use external tools such as APIs, databases, web browsers, or plugins to extend their capabilities. These “tool-augmented” LLMs combine a powerful text generation core with the ability to take actions in the world (retrieving information, executing code, etc.), enabling more accurate and dynamic responses. This report provides a comprehensive overview of how such models are trained for tool use, how they integrate and invoke tools, how tool outputs influence their reasoning, what security risks emerge, and what guardrails providers implement to ensure safe operation. We draw on known implementations and research to illustrate each aspect.
 Architecture and Training of Tool-Enabled LLMs
 
-Base Model and Transformer Architecture: High-profile LLMs with tool use support (GPT‑4, Claude, Gemini, etc.) are built on large transformer architectures pre-trained on vast text corpora. The base model learns to predict the next token in text, encoding a broad “common-sense” and knowledge of language. For instance, GPT‑4’s base model was trained on a diverse dataset and then post-trained with alignment techniques
+## Base Model and Transformer Architecture
+High-profile LLMs with tool use support (GPT‑4, Claude, Gemini, etc.) are built on large transformer architectures pre-trained on vast text corpora. The base model learns to predict the next token in text, encoding a broad “common-sense” and knowledge of language. For instance, GPT‑4’s base model was trained on a diverse dataset and then post-trained with alignment techniques
 openai.com
 . Similarly, Google’s Gemini is a multimodal transformer-based model that can handle text and other inputs natively
 blog.google
