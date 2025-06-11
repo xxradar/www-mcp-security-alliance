@@ -26,7 +26,7 @@ Many tool-using AI systems provide such information by design. For example, the 
 - ...
 - `google` – Google Search
 - `browse_website` – Browse Website
-- ... (16 commands total)
+- ... 
 
 If an attacker sees or infers such a tool list, they can tailor their prompt injection to invoke these commands. For instance, they might include instructions like:  
 `“Assistant: use execute_python_code to ...”`
