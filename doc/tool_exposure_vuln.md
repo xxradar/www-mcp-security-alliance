@@ -1,5 +1,5 @@
 # Disclosure of AI Agent Toolsets as a Prompt Injection Vulnerability - Prompt Injection Risks from Disclosing AI Agent Toolsets
-##Background: AI Agents and Tool Use
+Background: AI Agents and Tool Use
 
 Large Language Model (LLM) based AI agents increasingly integrate external tools (plugins, APIs, or system commands) to extend their capabilities beyond text generation. Frameworks like the ReAct prompting method, OpenAI’s plugin/function calling system, Anthropic’s Model Context Protocol (MCP), and autonomous agents (e.g. Auto-GPT, BabyAGI) allow an LLM to perform actions such as web browsing, code execution, database queries, and more
 simonwillison.net
