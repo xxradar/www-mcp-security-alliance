@@ -1,5 +1,5 @@
-Tool-Augmented Large Language Models: Training, Tool Use, and Safety
-Introduction
+# Tool-Augmented Large Language Models: Training, Tool Use, and Safety
+## Introduction
 
 Large Language Models (LLMs) like GPT‑4, Anthropic’s Claude, and Google’s Gemini represent a new generation of AI systems that can use external tools such as APIs, databases, web browsers, or plugins to extend their capabilities. These “tool-augmented” LLMs combine a powerful text generation core with the ability to take actions in the world (retrieving information, executing code, etc.), enabling more accurate and dynamic responses. This report provides a comprehensive overview of how such models are trained for tool use, how they integrate and invoke tools, how tool outputs influence their reasoning, what security risks emerge, and what guardrails providers implement to ensure safe operation. We draw on known implementations and research to illustrate each aspect.
 Architecture and Training of Tool-Enabled LLMs
@@ -37,7 +37,7 @@ shaped.ai
 . High-profile LLMs likely leverage a mix of supervised training and heuristic feedback so that tool use becomes a learned skill, not just a hard-coded feature. In practice, once the model’s architecture and fine-tuning data support tool usage, the same transformer network generates tool-related tokens just as it would generate words – there is no separate module, but rather the model has learned a “language of tools” to invoke functions.
 How LLMs Integrate and Invoke External Tools
 
-Integrating external tools with an LLM involves an orchestrated loop between the model and the tool. The typical interaction pattern is:
+## Integrating external tools with an LLM involves an orchestrated loop between the model and the tool. The typical interaction pattern is:
 
     Tool Availability & Prompting: The system or developer defines which tools or APIs the model can use, and provides the model with descriptions or documentation of these tools. For instance, in OpenAI’s plugin system, when plugins are enabled they are listed in the prompt along with usage instructions for the model
     openai.com
