@@ -1,0 +1,22 @@
+# MCP Security Alliance – LLM context index
+
+## Core Documentation
+/docs/getting-started.md    – Quickstart guide for new contributors
+/docs/architecture.md       – High-level design and system architecture
+/docs/api-reference.md      – Complete API reference with examples
+/docs/security-guidelines.md – Security best practices and processes
+
+## Standards & Whitepapers
+/whitepapers/mcp-standard.md           – Official standard overview
+/whitepapers/trust-framework.md        – Trust & governance framework
+/whitepapers/latest-research.md        – New and emerging threat research
+
+## Blog & Updates
+/blog/2025-05-qa-with-founders.md      – Interview with founding board
+/blog/2025-04-threat-landscape.md      – Monthly threat landscape overview
+/blog/2025-03-incident-response.md     – Incident response case study
+
+## Optional Resources
+/faq.md                               – Frequently Asked Questions
+/glossary.md                          – Terminology reference
+/changelog.md                         – Site version history
