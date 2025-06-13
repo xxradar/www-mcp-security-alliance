@@ -20,3 +20,6 @@
 /faq.md                               – Frequently Asked Questions
 /glossary.md                          – Terminology reference
 /changelog.md                         – Site version history
+
+## Contact
+Philippe Bogaerts aka xxradar at xxradar-mcp-alliance@radarhack.com
