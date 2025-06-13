@@ -1,0 +1,2 @@
+# llms.txt
+> A proposal that those interested in providing MCP security
